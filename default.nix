@@ -4,6 +4,7 @@ stdenv.mkDerivation rec {
 
   # Mandatory boilerplate for buildable env
   env = buildEnv { name = name; paths = buildInputs; };
+  allowUnfree = true;
   builder = builtins.toFile "builder.sh" ''
     source $stdenv/setup; ln -s $env $out
   '';
@@ -37,6 +38,10 @@ stdenv.mkDerivation rec {
         jupyter
         jupyterlab
         pyspark
+	xgboost
+	geopandas
+	notedown
+	tensorflowWithCuda
       ];
     })
 
