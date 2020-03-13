@@ -11,14 +11,6 @@ stdenv.mkDerivation rec {
 
   # Customizable development requirements
   buildInputs = [
-    # Add packages from nix-env -qaP | grep -i needle queries
-    bat
-    curl
-    exa
-    git
-    tmux
-    wget
-
     # With Python configuration requiring a special wrapper
     (python37.buildEnv.override {
       ignoreCollisions = true;
@@ -38,14 +30,12 @@ stdenv.mkDerivation rec {
         jupyter
         jupyterlab
         pyspark
-	xgboost
-	geopandas
-	notedown
-	tensorflowWithCuda
+        xgboost
+        #geopandas
+        #notedown
+        #tensorflowWithCuda
       ];
     })
-
-    # Vim
   ];
 
   # Customizable development shell setup with at last SSL certs set
